@@ -82,19 +82,18 @@ RSpec.describe ActsAsPushable::Pushable do
 
         it '#add_device returns true' do
           result = @user.add_device(@params)
-          expect(result).to eq(true)
+          expect(result).to be_kind_of(ActsAsPushable::Device)
         end
 
         it '#add_device returns the device' do
           result = @user.add_device(@params)
-          expect(result).to eq(true)
+          expect(result).to be_kind_of(ActsAsPushable::Device)
         end
       end
 
       context 'given invalid parameters' do
         before do
           @params = {
-            platform: "ios",
             platform_version: "9.3",
             push_environment: "development",
           }
@@ -103,10 +102,14 @@ RSpec.describe ActsAsPushable::Pushable do
         it '#add_device returns false' do
           result = @user.add_device(@params)
           expect(result).to eq(false)
+          expect(@user.errors.full_messages).to eq([
+            "Devices token can't be blank",
+            "Devices platform can't be blank",
+          ])
         end
 
         it '#add_device! raises an exception' do
-          expect { @user.add_device!(@params) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Token can't be blank")
+          expect { @user.add_device!(@params) }.to raise_error(ActiveRecord::RecordInvalid, "Validation failed: Token can't be blank, Platform can't be blank")
         end
       end
     end

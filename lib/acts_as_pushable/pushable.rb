@@ -21,12 +21,20 @@ module ActsAsPushable
 
     def add_device(device_params)
       device = build_device(device_params)
-      device.save
+      if device.save
+        return device
+      else
+        device.errors.each do |attribute, message|
+          errors.add(:devices, "#{attribute} #{message}")
+        end
+        return false
+      end
     end
 
     def add_device!(device_params)
       device = build_device(device_params)
       device.save!
+      return device
     end
 
     def send_push_notification(title:, message:, **options)
