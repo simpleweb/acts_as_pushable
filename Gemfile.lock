@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    acts_as_pushable (0.1.0)
+    acts_as_pushable (0.1.1)
       gcm
       houston
       rails (>= 5.0.0.beta4, < 5.1)
