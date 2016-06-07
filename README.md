@@ -3,7 +3,7 @@
 [![Build Status](https://semaphoreci.com/api/v1/projects/28a53ae7-389f-4d93-9f8a-51c4b0756cf7/840599/badge.svg)](https://semaphoreci.com/simpleweb/acts_as_pushable)
 [![Gem Version](https://badge.fury.io/rb/acts_as_pushable.svg)](https://badge.fury.io/rb/acts_as_pushable)
 
-A gem for Ruby on Rails that makes managing devices and push notifications for both iOS and Android easy and reliably.
+A gem for Ruby on Rails that makes managing devices and push notifications for both iOS and Android easy and reliable.
 
 ## Setup
 
