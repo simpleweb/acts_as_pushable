@@ -10,6 +10,8 @@ module ActsAsPushable
 
     scope :active, -> { where(invalidated_at: nil, active: true) }
 
+    default_scope { active }
+
     def ios?
       platform == 'ios'
     end
