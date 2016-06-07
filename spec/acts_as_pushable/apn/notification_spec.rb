@@ -3,11 +3,13 @@ require 'rails_helper'
 RSpec.describe ActsAsPushable::APN::Notification do
   context 'given a device' do
     before do
-      @device = ActsAsPushable::Device.create({
+      user = User.create!
+      @device = ActsAsPushable::Device.create!({
         token: SecureRandom.uuid,
         platform: 'ios',
         platform_version: '9.3',
         push_environment: 'development',
+        parent: user,
       })
     end
 

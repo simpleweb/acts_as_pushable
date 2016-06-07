@@ -3,11 +3,13 @@ require 'rails_helper'
 RSpec.describe ActsAsPushable::Device do
   context 'given a device' do
     before do
-      @device = ActsAsPushable::Device.create({
+      user = User.create!
+      @device = ActsAsPushable::Device.create!({
         token: SecureRandom.uuid,
         platform: "ios",
         platform_version: "9.3",
         push_environment: "development",
+        parent: user,
       })
     end
 
@@ -41,11 +43,13 @@ RSpec.describe ActsAsPushable::Device do
 
     context '#send_push_notification' do
       before do
-        @android_device = ActsAsPushable::Device.create({
+        user = User.create!
+        @android_device = ActsAsPushable::Device.create!({
           token: SecureRandom.uuid,
           platform: "android",
           platform_version: "4.4",
           push_environment: "development",
+          parent: user,
         })
       end
 
