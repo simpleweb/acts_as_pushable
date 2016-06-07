@@ -25,7 +25,8 @@ or just install it -
 Run the generator to create the migrations and initializer template -
 
   ```shell
-  rails generate act_as_pushable
+  rails generate act_as_pushable:install
+  rake db:migrate
   ```
 
 This a file at `config/initializers/acts_as_pushable.rb` that you can modify to match your settings. Follow the quick start guides for the platforms that you want to support.
