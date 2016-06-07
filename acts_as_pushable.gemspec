@@ -8,10 +8,10 @@ Gem::Specification.new do |s|
   s.name        = 'acts_as_pushable'
   s.version     = ActsAsPushable::VERSION
   s.authors     = ['Adam Butler']
-  s.email       = ['adam@lab.io']
-  s.homepage    = 'TODO'
-  s.summary     = 'TODO: Summary of ActsAsPushable.'
-  s.description = 'TODO: Description of ActsAsPushable.'
+  s.email       = ['adam@simpleweb.co.uk']
+  s.homepage    = 'https://github.com/simpleweb/acts_as_pushable'
+  s.summary     = 'Add iOS & Android device and push notification support in your Rails application.'
+  s.description = 'A gem for Ruby on Rails that makes managing devices and push notifications for both iOS and Android easy and reliably.'
   s.license     = 'MIT'
 
   s.files = Dir['{app,config,db,lib}/**/*', 'MIT-LICENSE', 'Rakefile', 'README.md']
