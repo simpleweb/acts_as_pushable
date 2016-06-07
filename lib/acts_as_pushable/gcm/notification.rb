@@ -16,7 +16,7 @@ module ActsAsPushable
           navigate_to_view_parameters: options.fetch("navigate_to_view_parameters", {}),
         }
 
-        gcm = ::GCM.new(ENV['GOOGLE_GCM_CLIENT_PRODUCTION_KEY'])
+        gcm = ::GCM.new(ActsAsPushable.configuration.gcm_key)
 
         gcm_options = {
           data: {
