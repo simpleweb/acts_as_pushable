@@ -5,6 +5,7 @@ require 'acts_as_pushable/active_record/device.rb'
 require 'acts_as_pushable/pushable'
 
 require 'acts_as_pushable/apn/notification'
+require 'acts_as_pushable/apn/feedback_service'
 require 'acts_as_pushable/gcm/notification'
 
 module ActsAsPushable

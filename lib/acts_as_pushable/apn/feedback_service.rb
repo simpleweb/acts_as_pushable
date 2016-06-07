@@ -3,12 +3,12 @@ require 'houston'
 module ActsAsPushable
   module APN
     class FeedbackService
-      def run
+      def self.run
         development_apn = Houston::Client.development
         production_apn = Houston::Client.production
 
-        development_apn.certificate = File.read("#{Rails.root}/apn/development/client.pem")
-        production_apn.certificate = File.read("#{Rails.root}/apn/production/client.pem")
+        development_apn.certificate = ActsAsPushable.configuration.apn_development_certificate_file
+        production_apn.certificate = ActsAsPushable.configuration.apn_production_certificate_file
 
         devices = development_apn.devices + production_apn.devices
 
