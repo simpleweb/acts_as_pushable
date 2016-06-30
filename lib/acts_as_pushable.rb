@@ -2,6 +2,7 @@ require 'acts_as_pushable/version'
 require 'acts_as_pushable/configuration'
 
 require 'acts_as_pushable/active_record/device.rb'
+require 'acts_as_pushable/notification'
 require 'acts_as_pushable/pushable'
 
 require 'acts_as_pushable/apn/notification'
