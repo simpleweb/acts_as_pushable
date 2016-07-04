@@ -105,9 +105,9 @@ Sending a push notification to a user will send the message to all of their vali
   case device.platform
   when "ios"
     # iOS does not support titles
-    user.send_push_notification(message: 'this is a test', options)
+    device.send_push_notification(message: 'this is a test', options)
   when "android"
-    user.send_push_notification(message: 'this is a test', options)
+    device.send_push_notification(message: 'this is a test', { title: 'My App' })
   end
   ```
 
