@@ -113,6 +113,15 @@ Sending a push notification to a user will send the message to all of their vali
 
 > You might want to consider doing this inside a worker.
 
+## Sending silent push notifications to iOS Devices
+
+You can send silent push notifications with no message to iOS devices. This is useful when you just want to update the badge count on the home screen.
+
+  ```ruby
+  user = User.find(id)
+  user.send_push_notification(title: false, message: false, content_available: false, count: 2)
+  ```
+
 ## Apple Feedback Service
 
 Occasionally you'll want to cleanup old tokens that have been invalidated for various reasons. You can do this by running -

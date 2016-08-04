@@ -14,7 +14,7 @@ RSpec.describe ActsAsPushable::GCM::Notification do
     end
 
     describe '#send' do
-      it 'calls push on houston' do
+      it 'calls send on gcm' do
         expect_any_instance_of(GCM).to receive(:send).once.and_return({ not_registered_ids: [] })
         ActsAsPushable::GCM::Notification.send(device: @device, title: 'My App', message: 'this is a test', popup_title: "this is a test")
       end
