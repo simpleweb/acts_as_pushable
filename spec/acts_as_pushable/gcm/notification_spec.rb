@@ -24,7 +24,7 @@ RSpec.describe ActsAsPushable::GCM::Notification do
           expect_any_instance_of(GCM).to receive(:send).once.and_return({ not_registered_ids: [@device.token] })
           ActsAsPushable::GCM::Notification.send(device: @device, title: 'My App', message: 'this is a test', popup_title: "this is a test")
           @device.reload
-          expect(@device.invalidated_at).to eq(Time.now)
+          expect(@device.invalidated_at).to eq(Time.current)
         end
       end
     end

@@ -18,7 +18,7 @@ RSpec.describe ActsAsPushable::APN::FeedbackService do
         allow_any_instance_of(Houston::Client).to receive(:devices).and_return(["abc123"])
         ActsAsPushable::APN::FeedbackService.run
         @device.reload
-        expect(@device.invalidated_at).to eq(Time.now)
+        expect(@device.invalidated_at).to eq(Time.current)
       end
     end
   end

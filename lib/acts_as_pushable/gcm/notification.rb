@@ -6,7 +6,7 @@ module ActsAsPushable
       def perform
         response = client.send([device.token], gcm_options)
         if response[:not_registered_ids].include? device.token
-          device.update_attribute 'invalidated_at', Time.now
+          device.update_attribute 'invalidated_at', Time.current
         end
         response
       end

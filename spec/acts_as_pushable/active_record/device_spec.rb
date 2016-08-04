@@ -36,7 +36,7 @@ RSpec.describe ActsAsPushable::Device do
         Timecop.freeze(Time.parse('2016-01-01')) do
           expect(@device.deactivated_at).to be_nil
           @device.deactivate
-          expect(@device.deactivated_at).to eq(Time.now)
+          expect(@device.deactivated_at).to eq(Time.current)
         end
       end
     end
