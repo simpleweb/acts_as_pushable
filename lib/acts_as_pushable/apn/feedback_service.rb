@@ -14,7 +14,7 @@ module ActsAsPushable
 
         devices.each do |device|
           device = ActsAsPushable::Device.find_by_token(device)
-          device.update_attribute('invalidated_at', Time.now) if device
+          device.update_attribute('invalidated_at', Time.current) if device
         end
       end
     end

@@ -23,7 +23,7 @@ module ActsAsPushable
     def deactivate
       self.update_attributes({
         active: false,
-        deactivated_at: Time.now,
+        deactivated_at: Time.current,
       })
     end
 
@@ -40,7 +40,7 @@ module ActsAsPushable
     private
 
     def set_valid_at
-      self.valid_at = Time.now
+      self.valid_at = Time.current
     end
   end
 end
