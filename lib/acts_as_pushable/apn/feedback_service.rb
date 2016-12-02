@@ -13,7 +13,7 @@ module ActsAsPushable
         devices = development_apn.devices + production_apn.devices
 
         devices.each do |device|
-          device = ActsAsPushable::Device.find_by_token(device)
+          device = ActsAsPushable::Device.find_by_token(device.delete(' '))
           device.update_attribute('invalidated_at', Time.current) if device
         end
       end
