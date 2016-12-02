@@ -73,5 +73,19 @@ RSpec.describe ActsAsPushable::Device do
         end
       end
     end
+    context '#strip_spaces_from_token' do
+      it 'strips spaces from the token' do
+        user = User.create!
+        @device = ActsAsPushable::Device.create!({
+          token: 'aaaaa bbbbb ccccc',
+          platform: "ios",
+          platform_version: "9.3",
+          push_environment: "development",
+          parent: user,
+        })
+
+        expect(@device.token).to eq('aaaaabbbbbccccc')
+      end
+    end
   end
 end
