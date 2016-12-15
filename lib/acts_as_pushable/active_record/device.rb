@@ -7,6 +7,7 @@ module ActsAsPushable
     validates :active, inclusion: { in: [true, false] }
 
     before_validation :set_valid_at, on: :create
+    before_validation :strip_spaces_from_token, on: :create, if: :token
 
     scope :active, -> { where(invalidated_at: nil, active: true) }
 
@@ -41,6 +42,10 @@ module ActsAsPushable
 
     def set_valid_at
       self.valid_at = Time.current
+    end
+
+    def strip_spaces_from_token
+      self.token = token.delete(' ')
     end
   end
 end
